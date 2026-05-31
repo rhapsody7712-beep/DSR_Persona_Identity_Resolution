@@ -13,6 +13,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 
 from idres.loader import build_resolver
+from idres.feedback import confirm_match
 
 app = FastAPI(title="Customer Identity Resolution", version="1.0.0")
 RESOLVER = build_resolver()
@@ -77,3 +78,17 @@ def dsr(q: DSRQuery):
         "evidence": r.evidence,
         "next_action": plan if actionable else "Route to privacy analyst for review.",
     }
+
+
+class FeedbackIn(BaseModel):
+    request_name: str        # first name (or full name) from the inbound request
+    matched_name: str        # first name (or full name) from the matched record
+    evidence: dict           # the evidence breakdown from the original search
+    analyst_id: str = "analyst"
+
+
+@app.post("/v1/feedback")
+def feedback(f: FeedbackIn):
+    """Record an analyst's confirmation of a REVIEW-band match. May stage or
+    promote a learned nickname pair, which improves future resolutions."""
+    return confirm_match(f.request_name, f.matched_name, f.evidence, f.analyst_id)

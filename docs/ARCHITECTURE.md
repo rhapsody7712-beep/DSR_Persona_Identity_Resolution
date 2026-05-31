@@ -50,6 +50,35 @@ dict in `engine.py` and are the primary tuning surface.
 The gap between bands is deliberate: the system would rather send a borderline case
 to a human than risk a wrong merge.
 
+## Name handling
+
+Names are parsed into **first / last / middle** with suffixes (Jr, Sr, III) stripped
+and `Last, First Middle` order normalized. The first name is canonicalized through the
+NickNames Library. The middle name is a supporting signal: matching middles add a small
+boost, an initial-vs-full-name (`A.` vs `Ann`) is a partial match, and *disagreeing*
+middles (`Ann` vs `Beth`) apply a penalty - the one case where a name field actively
+argues against a merge. A missing middle is treated as no evidence, never a penalty.
+
+## Self-improving NickNames Library
+
+The library is no longer static. When an analyst confirms a REVIEW-band match,
+`feedback.confirm_match` decides what to learn:
+
+- It only proposes a nickname when the evidence shows the **first name was the gap**
+  (a strong identifier - email or phone - carried the match, and the first name did
+  not match exactly). A confirmed match caused by a typo'd surname or stale phone
+  teaches nothing about nicknames.
+- A proposed pair is **staged**, not applied. It is promoted into the active library
+  only after enough *distinct* analysts confirm it (`PROMOTE_AT`), so one analyst's
+  error cannot poison future matching.
+- Promoted pairs persist to `data/nicknames.json` with a full audit log in
+  `data/nickname_proposals.json` (who confirmed, when), so any learned mapping can be
+  reviewed or rolled back.
+
+The payoff: every analyst decision in the REVIEW band makes the next resolution
+smarter, so the auto-merge rate rises and manual review shrinks over time. Exposed via
+`POST /v1/feedback`.
+
 ## Scaling notes
 
 - Blocking keys move to a real index (Elasticsearch / a KV store) at production scale.

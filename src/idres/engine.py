@@ -16,7 +16,7 @@ from dataclasses import dataclass, field
 from difflib import SequenceMatcher
 from typing import Dict, List, Optional
 
-from .normalize import norm_phone, norm_email, split_name
+from .normalize import norm_phone, norm_email, split_name, middle_match
 
 WEIGHTS = {
     "email_exact": 0.55,
@@ -26,6 +26,7 @@ WEIGHTS = {
     "first_fuzzy": 0.12,
     "last_fuzzy": 0.12,
     "state_exact": 0.08,
+    "middle_match": 0.10,   # supporting signal; negative when middles disagree
 }
 AUTO_MERGE = 0.90   # Identity Resolution (90% confidence) from the diagram
 REVIEW = 0.62
@@ -46,30 +47,32 @@ class Entity:
     email: str = ""
     phone: str = ""
     state: str = ""
+    middle: str = ""
     truth: Optional[str] = None  # ground-truth id, NEVER used for matching
 
     @classmethod
     def from_record(cls, source: str, rec: dict) -> "Entity":
         truth = rec.get("_truth")
         if source == "network":
-            f, l = split_name(rec.get("subscriber_name", ""))
-            return cls(source, rec, f, l, "", norm_phone(rec.get("msisdn", "")), "", truth)
+            f, l, m = split_name(rec.get("subscriber_name", ""))
+            return cls(source, rec, f, l, "", norm_phone(rec.get("msisdn", "")), "", m, truth)
         if source == "billing":
-            f, l = split_name(rec.get("full_name", ""))
+            f, l, m = split_name(rec.get("full_name", ""))
             return cls(source, rec, f, l, norm_email(rec.get("email", "")),
-                       norm_phone(rec.get("billing_phone", "")), (rec.get("state") or "").upper(), truth)
+                       norm_phone(rec.get("billing_phone", "")),
+                       (rec.get("state") or "").upper(), m, truth)
         if source == "third_party":
-            f, l = split_name(rec.get("name", ""))
+            f, l, m = split_name(rec.get("name", ""))
             return cls(source, rec, f, l, norm_email(rec.get("email_hash_seed", "")),
-                       norm_phone(rec.get("contact_phone", "")), "", truth)
+                       norm_phone(rec.get("contact_phone", "")), "", m, truth)
         if source == "iam":
-            f, l = split_name(f"{rec.get('given_name','')} {rec.get('family_name','')}")
+            f, l, m = split_name(f"{rec.get('given_name','')} {rec.get('family_name','')}")
             return cls(source, rec, f, l, norm_email(rec.get("email", "")),
-                       norm_phone(rec.get("phone_number", "")), "", truth)
+                       norm_phone(rec.get("phone_number", "")), "", m, truth)
         # dsr / generic
-        f, l = split_name(rec.get("name", ""))
+        f, l, m = split_name(rec.get("name", ""))
         return cls(source, rec, f, l, norm_email(rec.get("email", "")),
-                   norm_phone(rec.get("phone", "")), (rec.get("state") or "").upper(), truth)
+                   norm_phone(rec.get("phone", "")), (rec.get("state") or "").upper(), m, truth)
 
 
 def score_pair(a: Entity, b: Entity) -> (float, Dict[str, float]):
@@ -93,6 +96,9 @@ def score_pair(a: Entity, b: Entity) -> (float, Dict[str, float]):
             contrib["first_fuzzy"] = WEIGHTS["first_fuzzy"] * sim(a.first, b.first)
     if a.state and b.state and a.state == b.state:
         contrib["state_exact"] = WEIGHTS["state_exact"]
+    mm = middle_match(a.middle, b.middle)
+    if mm != 0.0:
+        contrib["middle_match"] = round(WEIGHTS["middle_match"] * mm, 4)
     return round(min(sum(contrib.values()), 1.0), 4), contrib
 
 

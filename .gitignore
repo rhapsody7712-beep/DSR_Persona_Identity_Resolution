@@ -4,3 +4,5 @@ __pycache__/
 data/*.csv
 data/*.json
 .pytest_cache/
+data/nicknames.json
+data/nickname_proposals.json

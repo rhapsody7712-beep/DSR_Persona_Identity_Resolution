@@ -14,17 +14,17 @@
       "REVIEW": 5,
       "NO_MATCH": 13
     },
-    "index_build_ms": 16.0,
-    "search_total_ms": 452.2,
-    "search_ms_per_request": 3.77
+    "index_build_ms": 15.5,
+    "search_total_ms": 443.5,
+    "search_ms_per_request": 3.7
   },
   "sample": [
     {
-      "request_id": "DSR-6fad5354",
+      "request_id": "DSR-98ba6d43",
       "decision": "AUTO_MERGE",
       "confidence": 1.0,
-      "matched_truth": "23e9a602-4d62-4f6f-a6ab-8e2b73e9e544",
-      "request_truth": "23e9a602-4d62-4f6f-a6ab-8e2b73e9e544",
+      "matched_truth": "1d7f049e-5d56-495f-87d2-0493d1b5f745",
+      "request_truth": "1d7f049e-5d56-495f-87d2-0493d1b5f745",
       "evidence": {
         "email_exact": 0.55,
         "phone_exact": 0.4,
@@ -39,11 +39,11 @@
       ]
     },
     {
-      "request_id": "DSR-4c4445e1",
+      "request_id": "DSR-4e77ce18",
       "decision": "AUTO_MERGE",
       "confidence": 0.97,
-      "matched_truth": "6712d1e0-e97c-4c19-ad73-b8c6be6cf0da",
-      "request_truth": "6712d1e0-e97c-4c19-ad73-b8c6be6cf0da",
+      "matched_truth": "cb336773-2622-4c17-9f7b-aadf73a92bea",
+      "request_truth": "cb336773-2622-4c17-9f7b-aadf73a92bea",
       "evidence": {
         "email_exact": 0.55,
         "last_exact": 0.22,
@@ -56,11 +56,11 @@
       ]
     },
     {
-      "request_id": "DSR-dc0aa02e",
+      "request_id": "DSR-c279e047",
       "decision": "AUTO_MERGE",
       "confidence": 1.0,
-      "matched_truth": "f38cd8d1-d260-4378-89d4-7e5352f1a472",
-      "request_truth": "f38cd8d1-d260-4378-89d4-7e5352f1a472",
+      "matched_truth": "a369bdcb-6b39-40d4-a6b2-616809db13c3",
+      "request_truth": "a369bdcb-6b39-40d4-a6b2-616809db13c3",
       "evidence": {
         "email_exact": 0.55,
         "last_exact": 0.22,
@@ -75,11 +75,11 @@
       ]
     },
     {
-      "request_id": "DSR-27310171",
+      "request_id": "DSR-e65c9fb7",
       "decision": "AUTO_MERGE",
       "confidence": 1.0,
-      "matched_truth": "76708a8c-91d3-4703-8576-ee20236a8ae0",
-      "request_truth": "76708a8c-91d3-4703-8576-ee20236a8ae0",
+      "matched_truth": "e4e2972c-ac92-424c-9aa4-6b20236d16ed",
+      "request_truth": "e4e2972c-ac92-424c-9aa4-6b20236d16ed",
       "evidence": {
         "email_exact": 0.55,
         "phone_exact": 0.4,
@@ -94,11 +94,11 @@
       ]
     },
     {
-      "request_id": "DSR-e50dc443",
+      "request_id": "DSR-e37f988d",
       "decision": "NO_MATCH",
       "confidence": 0.42,
-      "matched_truth": "82a27035-95cc-4f94-bfa4-54d9f068b1d5",
-      "request_truth": "04e0aefb-1d4e-4214-ad11-7cebe80c43ae",
+      "matched_truth": "cdf488b4-f1f7-408b-9904-24df1c23a6d7",
+      "request_truth": "7fb1c913-e8fb-4cad-a081-3e1cebe259eb",
       "evidence": {
         "last_exact": 0.22,
         "first_canon": 0.2
@@ -110,11 +110,11 @@
       ]
     },
     {
-      "request_id": "DSR-bc296b81",
+      "request_id": "DSR-055ecb9e",
       "decision": "AUTO_MERGE",
       "confidence": 0.97,
-      "matched_truth": "7e954933-895b-41e5-aed0-5270438a63f3",
-      "request_truth": "7e954933-895b-41e5-aed0-5270438a63f3",
+      "matched_truth": "9febef1b-1235-42e2-8307-fcb1b8a2f680",
+      "request_truth": "9febef1b-1235-42e2-8307-fcb1b8a2f680",
       "evidence": {
         "email_exact": 0.55,
         "last_exact": 0.22,
@@ -127,11 +127,11 @@
       ]
     },
     {
-      "request_id": "DSR-510d7357",
+      "request_id": "DSR-4335aceb",
       "decision": "AUTO_MERGE",
       "confidence": 0.97,
-      "matched_truth": "e6cfb73f-ec9a-406d-86f5-b15ac560e433",
-      "request_truth": "e6cfb73f-ec9a-406d-86f5-b15ac560e433",
+      "matched_truth": "38d2912a-371b-479d-a834-e53570fbf78a",
+      "request_truth": "38d2912a-371b-479d-a834-e53570fbf78a",
       "evidence": {
         "email_exact": 0.55,
         "last_exact": 0.22,
@@ -145,11 +145,11 @@
       ]
     },
     {
-      "request_id": "DSR-a17a187d",
+      "request_id": "DSR-84375f21",
       "decision": "AUTO_MERGE",
       "confidence": 1.0,
-      "matched_truth": "5f8ddd3c-4f72-483d-a47d-854ace4a7a90",
-      "request_truth": "5f8ddd3c-4f72-483d-a47d-854ace4a7a90",
+      "matched_truth": "32c78d88-f025-40bb-8f04-7244abc0b901",
+      "request_truth": "32c78d88-f025-40bb-8f04-7244abc0b901",
       "evidence": {
         "email_exact": 0.55,
         "last_exact": 0.22,
@@ -163,11 +163,11 @@
       ]
     },
     {
-      "request_id": "DSR-ac7f2717",
+      "request_id": "DSR-9371bfb8",
       "decision": "AUTO_MERGE",
       "confidence": 1.0,
-      "matched_truth": "caf17f05-40af-42a0-9c5b-8e218a153700",
-      "request_truth": "caf17f05-40af-42a0-9c5b-8e218a153700",
+      "matched_truth": "921acbbb-db47-4cfc-95dd-712200c79523",
+      "request_truth": "921acbbb-db47-4cfc-95dd-712200c79523",
       "evidence": {
         "email_exact": 0.55,
         "phone_exact": 0.4,
@@ -183,11 +183,11 @@
       ]
     },
     {
-      "request_id": "DSR-747fe457",
+      "request_id": "DSR-550c892f",
       "decision": "AUTO_MERGE",
       "confidence": 1.0,
-      "matched_truth": "23e8ae98-d1ec-43cc-b6dd-b6c977d84c71",
-      "request_truth": "23e8ae98-d1ec-43cc-b6dd-b6c977d84c71",
+      "matched_truth": "86c0dda4-1e05-474e-9354-018852dd73da",
+      "request_truth": "86c0dda4-1e05-474e-9354-018852dd73da",
       "evidence": {
         "email_exact": 0.55,
         "last_exact": 0.22,
