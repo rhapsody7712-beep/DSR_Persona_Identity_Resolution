@@ -1,0 +1,205 @@
+{
+  "summary": {
+    "total_dsr_requests": 120,
+    "customer_db_records": 1780,
+    "precision": 1.0,
+    "recall": 0.892,
+    "f1": 0.943,
+    "auto_merge_rate": 0.85,
+    "auto_merge_precision": 1.0,
+    "avg_sources_fused": 3.61,
+    "mean_confidence": 0.922,
+    "confidence_bands": {
+      "AUTO_MERGE": 102,
+      "REVIEW": 5,
+      "NO_MATCH": 13
+    },
+    "index_build_ms": 16.0,
+    "search_total_ms": 452.2,
+    "search_ms_per_request": 3.77
+  },
+  "sample": [
+    {
+      "request_id": "DSR-6fad5354",
+      "decision": "AUTO_MERGE",
+      "confidence": 1.0,
+      "matched_truth": "23e9a602-4d62-4f6f-a6ab-8e2b73e9e544",
+      "request_truth": "23e9a602-4d62-4f6f-a6ab-8e2b73e9e544",
+      "evidence": {
+        "email_exact": 0.55,
+        "phone_exact": 0.4,
+        "last_exact": 0.22,
+        "first_canon": 0.2
+      },
+      "matched_sources": [
+        "billing",
+        "iam",
+        "network",
+        "third_party"
+      ]
+    },
+    {
+      "request_id": "DSR-4c4445e1",
+      "decision": "AUTO_MERGE",
+      "confidence": 0.97,
+      "matched_truth": "6712d1e0-e97c-4c19-ad73-b8c6be6cf0da",
+      "request_truth": "6712d1e0-e97c-4c19-ad73-b8c6be6cf0da",
+      "evidence": {
+        "email_exact": 0.55,
+        "last_exact": 0.22,
+        "first_canon": 0.2
+      },
+      "matched_sources": [
+        "billing",
+        "iam",
+        "network"
+      ]
+    },
+    {
+      "request_id": "DSR-dc0aa02e",
+      "decision": "AUTO_MERGE",
+      "confidence": 1.0,
+      "matched_truth": "f38cd8d1-d260-4378-89d4-7e5352f1a472",
+      "request_truth": "f38cd8d1-d260-4378-89d4-7e5352f1a472",
+      "evidence": {
+        "email_exact": 0.55,
+        "last_exact": 0.22,
+        "first_canon": 0.2,
+        "state_exact": 0.08
+      },
+      "matched_sources": [
+        "billing",
+        "iam",
+        "network",
+        "third_party"
+      ]
+    },
+    {
+      "request_id": "DSR-27310171",
+      "decision": "AUTO_MERGE",
+      "confidence": 1.0,
+      "matched_truth": "76708a8c-91d3-4703-8576-ee20236a8ae0",
+      "request_truth": "76708a8c-91d3-4703-8576-ee20236a8ae0",
+      "evidence": {
+        "email_exact": 0.55,
+        "phone_exact": 0.4,
+        "last_exact": 0.22,
+        "first_canon": 0.2
+      },
+      "matched_sources": [
+        "billing",
+        "iam",
+        "network",
+        "third_party"
+      ]
+    },
+    {
+      "request_id": "DSR-e50dc443",
+      "decision": "NO_MATCH",
+      "confidence": 0.42,
+      "matched_truth": "82a27035-95cc-4f94-bfa4-54d9f068b1d5",
+      "request_truth": "04e0aefb-1d4e-4214-ad11-7cebe80c43ae",
+      "evidence": {
+        "last_exact": 0.22,
+        "first_canon": 0.2
+      },
+      "matched_sources": [
+        "billing",
+        "iam",
+        "network"
+      ]
+    },
+    {
+      "request_id": "DSR-bc296b81",
+      "decision": "AUTO_MERGE",
+      "confidence": 0.97,
+      "matched_truth": "7e954933-895b-41e5-aed0-5270438a63f3",
+      "request_truth": "7e954933-895b-41e5-aed0-5270438a63f3",
+      "evidence": {
+        "email_exact": 0.55,
+        "last_exact": 0.22,
+        "first_canon": 0.2
+      },
+      "matched_sources": [
+        "billing",
+        "iam",
+        "network"
+      ]
+    },
+    {
+      "request_id": "DSR-510d7357",
+      "decision": "AUTO_MERGE",
+      "confidence": 0.97,
+      "matched_truth": "e6cfb73f-ec9a-406d-86f5-b15ac560e433",
+      "request_truth": "e6cfb73f-ec9a-406d-86f5-b15ac560e433",
+      "evidence": {
+        "email_exact": 0.55,
+        "last_exact": 0.22,
+        "first_canon": 0.2
+      },
+      "matched_sources": [
+        "billing",
+        "iam",
+        "network",
+        "third_party"
+      ]
+    },
+    {
+      "request_id": "DSR-a17a187d",
+      "decision": "AUTO_MERGE",
+      "confidence": 1.0,
+      "matched_truth": "5f8ddd3c-4f72-483d-a47d-854ace4a7a90",
+      "request_truth": "5f8ddd3c-4f72-483d-a47d-854ace4a7a90",
+      "evidence": {
+        "email_exact": 0.55,
+        "last_exact": 0.22,
+        "first_canon": 0.2,
+        "state_exact": 0.08
+      },
+      "matched_sources": [
+        "billing",
+        "iam",
+        "network"
+      ]
+    },
+    {
+      "request_id": "DSR-ac7f2717",
+      "decision": "AUTO_MERGE",
+      "confidence": 1.0,
+      "matched_truth": "caf17f05-40af-42a0-9c5b-8e218a153700",
+      "request_truth": "caf17f05-40af-42a0-9c5b-8e218a153700",
+      "evidence": {
+        "email_exact": 0.55,
+        "phone_exact": 0.4,
+        "last_exact": 0.22,
+        "first_canon": 0.2,
+        "state_exact": 0.08
+      },
+      "matched_sources": [
+        "billing",
+        "iam",
+        "network",
+        "third_party"
+      ]
+    },
+    {
+      "request_id": "DSR-747fe457",
+      "decision": "AUTO_MERGE",
+      "confidence": 1.0,
+      "matched_truth": "23e8ae98-d1ec-43cc-b6dd-b6c977d84c71",
+      "request_truth": "23e8ae98-d1ec-43cc-b6dd-b6c977d84c71",
+      "evidence": {
+        "email_exact": 0.55,
+        "last_exact": 0.22,
+        "first_canon": 0.2,
+        "state_exact": 0.08
+      },
+      "matched_sources": [
+        "billing",
+        "iam",
+        "network",
+        "third_party"
+      ]
+    }
+  ]
+}
